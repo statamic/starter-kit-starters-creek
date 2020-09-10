@@ -21,7 +21,7 @@
 
 ## Screenshot
 
-![Screenshot](https://github.com/statamic/starter-kit-starters-creek/raw/master/screenshot.png)
+![Screenshot](https://github.com/statamic/starter-kit-starters-creek/raw/master/screenshot.jpg)
 
 ## Quick Start
 
