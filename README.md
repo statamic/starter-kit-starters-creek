@@ -13,8 +13,9 @@
 - Customizable social links and icons
 - Configurable static newsletter sign up form on blog pages
 - Pre-configured, native search
+- Automatic image resizing with Glide
 - Beautifully responsive
-- Glide image resizing
+- [Static Site Generator](https://github.com/statamic/ssg) ready
 - Built with [TailwindCSS](https://tailwindcss.com)
 - Itty bitty [Alpine.js](https://github.com/alpinejs/alpine) for interactions
 - :100:/:100:/:100:/:100: Lighthouse score
