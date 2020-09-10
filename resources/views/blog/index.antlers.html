@@ -6,7 +6,7 @@
     {{ collection:blog as="posts" paginate="12" }}
     <section class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 py-8">
         {{ posts }}
-            <div class="{{ first ? 'col-span-2' : 'col-span-1' }}">
+            <div class="{{ first ? 'md:col-span-2' : 'col-span-1' }}">
                 {{ partial:blog/card oversized="{{ first ? 'true' : 'false' }}" }}
             </div>
         {{ /posts }}
