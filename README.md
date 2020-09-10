@@ -21,14 +21,14 @@
 
 ## Screenshot
 
-![Screenshot](https://github.com/statamic/statamic-starter-starters-creek/raw/master/screenshot.png)
+![Screenshot](https://github.com/statamic/starter-kit-starters-creek/raw/master/screenshot.png)
 
 ## Quick Start
 
 **1. Create a new site** cloning the repo and removing the origin repo.
 
 ```
-git clone git@github.com:statamic/statamic-starter-starters-creek.git blog-site
+git clone git@github.com:statamic/starter-kit-starters-creek.git blog-site
 cd blog-site
 rm -rf .git
 composer install
