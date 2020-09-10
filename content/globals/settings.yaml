@@ -10,7 +10,7 @@ data:
       icon: site/social-icons/twitter.svg
     -
       name: Github
-      url: 'https://github.com/statamic'
+      url: 'https://github.com/statamic/starter-kit-starters-creek'
       icon: site/social-icons/github.svg
     -
       name: Email
