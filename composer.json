@@ -1,7 +1,7 @@
 {
-    "name": "statamic/statamic",
+    "name": "statamic/starter-kit-starters-creek",
     "description": "Statamic",
-    "keywords": ["statamic", "cms", "flat file", "laravel"],
+    "keywords": ["statamic", "cms", "starter", "flat file", "laravel"],
     "type": "project",
     "require": {
         "php": "^7.2.5",
