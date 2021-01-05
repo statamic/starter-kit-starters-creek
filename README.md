@@ -20,9 +20,10 @@
 - Itty bitty [Alpine.js](https://github.com/alpinejs/alpine) for interactions
 - :100:/:100:/:100:/:100: Lighthouse score
 
-## Screenshot
+## Screenshots
 
-![Screenshot](https://github.com/statamic/starter-kit-starters-creek/raw/master/screenshot.jpg)
+![Casual Screenshot](https://github.com/statamic/starter-kit-starters-creek/raw/master/screenshot-casual.jpg)
+![Formal Screenshot](https://github.com/statamic/starter-kit-starters-creek/raw/master/screenshot-formal.jpg)
 
 ## Quick Start
 
