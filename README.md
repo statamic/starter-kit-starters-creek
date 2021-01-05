@@ -22,8 +22,9 @@
 
 ## Screenshots
 
-![Casual Screenshot](https://github.com/statamic/starter-kit-starters-creek/raw/master/screenshot-casual.jpg)
-![Formal Screenshot](https://github.com/statamic/starter-kit-starters-creek/raw/master/screenshot-formal.jpg)
+| Casual  | Formal  |
+|---|---|
+| ![Casual Screenshot](https://github.com/statamic/starter-kit-starters-creek/raw/master/screenshot-casual.jpg)  |  ![Formal Screenshot](https://github.com/statamic/starter-kit-starters-creek/raw/master/screenshot-formal.jpg) |
 
 ## Quick Start
 
