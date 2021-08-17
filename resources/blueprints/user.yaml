@@ -1,0 +1,39 @@
+sections:
+  main:
+    display: Main
+    fields:
+      -
+        handle: name
+        field:
+          type: text
+          display: Name
+      -
+        handle: handle
+        field:
+          generate: true
+          type: slug
+          instructions: 'Shown in the URL for author pages. E.g. `/author/kevin-jones`'
+          listable: hidden
+          display: Handle
+      -
+        handle: email
+        field:
+          type: text
+          input: email
+          display: 'Email Address'
+      -
+        handle: roles
+        field:
+          type: user_roles
+          width: 50
+      -
+        handle: groups
+        field:
+          type: user_groups
+          width: 50
+      -
+        handle: avatar
+        field:
+          type: assets
+          max_files: 1
+          container: assets

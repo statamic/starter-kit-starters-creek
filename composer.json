@@ -1,0 +1,9 @@
+{
+    "name": "statamic/starter-kit-starters-creek",
+    "extra": {
+        "statamic": {
+            "name": "Starter Kit: Starters Creek",
+            "description": "Statamic Starter Kit: Starters"
+        }
+    }
+}

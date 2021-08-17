@@ -1,0 +1,17 @@
+export_paths:
+  - content
+  - resources/blueprints
+  - resources/css
+  - resources/js
+  - resources/svg
+  - resources/views
+  - routes/web.php
+  - public/assets
+  - public/css
+  - public/js
+  - package.json
+  - tailwind.config.js
+  - webpack.mix.js
+  - README.md
+dependencies:
+  statamic/ssg: ^0.7.0
