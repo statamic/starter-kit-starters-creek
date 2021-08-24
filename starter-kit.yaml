@@ -14,4 +14,4 @@ export_paths:
   - webpack.mix.js
   - README.md
 dependencies:
-  statamic/ssg: ^0.7.0
+  statamic/ssg: ^0.8.0
