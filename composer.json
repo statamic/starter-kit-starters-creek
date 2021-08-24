@@ -5,5 +5,10 @@
             "name": "Starter Kit: Starters Creek",
             "description": "Statamic Starter Kit: Starters"
         }
+    },
+    "scripts": {
+        "post-create-project-cmd": [
+            "@php upgrade-cli-notice.php"
+        ]
     }
 }
