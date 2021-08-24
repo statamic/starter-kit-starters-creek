@@ -26,7 +26,7 @@
             {{ if type == "text" }}
                 {{ text }}
             {{ elseif type == "code_block" }}
-<pre class="language-{{ mode ?? 'php' }} rounded"><code>{{ code | entities }}</code></pre>
+<pre class="language-{{ mode ?? 'php' }} rounded"><code>{{ code }}</code></pre>
             {{ elseif type == "image" }}
                 <figure>
                     <img src="{{ image }}" alt="{{ caption }}" />

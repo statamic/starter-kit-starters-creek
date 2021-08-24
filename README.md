@@ -1,12 +1,14 @@
+<!-- statamic:hide -->
 <p align="center"><img src="https://statamic.com/assets/branding/Statamic-Logo-Rad.png" width="100" alt="Statamic Logo" /></p>
 <h1 align="center">
   Statamic Starter Kit: Starter's Creek
 </h1>
 
 ![Statamic 3.0+](https://img.shields.io/badge/Statamic-3.0+-FF269E?style=for-the-badge&link=https://statamic.com)
+<!-- /statamic:hide -->
 
 ## Features
-- Multi-author blog with author pages
+"statamic/cms": "@dev","statamic/cms": "@dev",- Multi-author blog with author pages
 - [Bard](https://statamic.dev/fieldtypes/bard) focused writing experience
 - Code highlighting with [prism.js](https://prismjs.com/)
 - Two personality modes: `casual` and `formal` to adapt to your personal style
@@ -20,11 +22,13 @@
 - Itty bitty [Alpine.js](https://github.com/alpinejs/alpine) for interactions
 - :100:/:100:/:100:/:100: Lighthouse score
 
+<!-- statamic:hide -->
 ## Screenshots
 
 | Casual  | Formal  |
 |---|---|
 | ![Casual Screenshot](https://github.com/statamic/starter-kit-starters-creek/raw/master/screenshot-casual.jpg)  |  ![Formal Screenshot](https://github.com/statamic/starter-kit-starters-creek/raw/master/screenshot-formal.jpg) |
+<!-- /statamic:hide -->
 
 ## Quick Start
 
