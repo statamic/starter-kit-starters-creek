@@ -4,11 +4,11 @@
   Statamic Starter Kit: Starter's Creek
 </h1>
 
-![Statamic 3.2+](https://img.shields.io/badge/Statamic-3.0+-FF269E?style=for-the-badge&link=https://statamic.com)
+![Statamic 3.2+](https://img.shields.io/badge/Statamic-3.2+-FF269E?style=for-the-badge&link=https://statamic.com)
 <!-- /statamic:hide -->
 
 ## Features
-"statamic/cms": "@dev","statamic/cms": "@dev",- Multi-author blog with author pages
+- Multi-author blog with author pages
 - [Bard](https://statamic.dev/fieldtypes/bard) focused writing experience
 - Code highlighting with [prism.js](https://prismjs.com/)
 - Two personality modes: `casual` and `formal` to adapt to your personal style
