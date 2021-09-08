@@ -5,6 +5,8 @@
 </h1>
 
 ![Statamic 3.2+](https://img.shields.io/badge/Statamic-3.2+-FF269E?style=for-the-badge&link=https://statamic.com)
+
+> View on the [Statamic Marketplace](https://statamic.com/starter-kits/statamic/starters-creek)!
 <!-- /statamic:hide -->
 
 ## Features
@@ -22,13 +24,6 @@
 - Itty bitty [Alpine.js](https://github.com/alpinejs/alpine) for interactions
 - :100:/:100:/:100:/:100: Lighthouse score
 
-<!-- statamic:hide -->
-## Screenshots
-
-| Casual  | Formal  |
-|---|---|
-| ![Casual Screenshot](https://github.com/statamic/starter-kit-starters-creek/raw/master/screenshot-casual.jpg)  |  ![Formal Screenshot](https://github.com/statamic/starter-kit-starters-creek/raw/master/screenshot-formal.jpg) |
-<!-- /statamic:hide -->
 
 ## Quick Start
 
