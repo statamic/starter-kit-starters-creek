@@ -4,13 +4,11 @@
   Statamic Starter Kit: Starter's Creek
 </h1>
 
-![Statamic 3.2+](https://img.shields.io/badge/Statamic-3.2+-FF269E?style=for-the-badge&link=https://statamic.com)
-
-> View on the [Statamic Marketplace](https://statamic.com/starter-kits/statamic/starters-creek)!
+![Statamic 3.0+](https://img.shields.io/badge/Statamic-3.0+-FF269E?style=for-the-badge&link=https://statamic.com)
 <!-- /statamic:hide -->
 
 ## Features
-- Multi-author blog with author pages
+"statamic/cms": "@dev","statamic/cms": "@dev",- Multi-author blog with author pages
 - [Bard](https://statamic.dev/fieldtypes/bard) focused writing experience
 - Code highlighting with [prism.js](https://prismjs.com/)
 - Two personality modes: `casual` and `formal` to adapt to your personal style
@@ -24,29 +22,35 @@
 - Itty bitty [Alpine.js](https://github.com/alpinejs/alpine) for interactions
 - :100:/:100:/:100:/:100: Lighthouse score
 
+<!-- statamic:hide -->
+## Screenshots
+
+| Casual  | Formal  |
+|---|---|
+| ![Casual Screenshot](https://github.com/statamic/starter-kit-starters-creek/raw/master/screenshot-casual.jpg)  |  ![Formal Screenshot](https://github.com/statamic/starter-kit-starters-creek/raw/master/screenshot-formal.jpg) |
+<!-- /statamic:hide -->
 
 ## Quick Start
 
-### Install as a New Site
-You can spin up a new install of Statamic along with this Starter Kit all in one command by using the [Statamic CLI Tool](https://github.com/statamic/cli)
+**1. Create a new site** cloning the repo and removing the origin repo.
 
 ```
-statamic new mysite statamic/starter-kit-starters-creek
+git clone git@github.com:statamic/starter-kit-starters-creek.git blog-site
+cd blog-site
+rm -rf .git
+composer install
+cp .env.example .env && php artisan key:generate
 ```
 
-Follow the prompts and you'll be up and running shortly.
-
-### Install into an existing site
-You can alternatively install Starter Kits into an existing Statamic 3.2+ site by running the following command while inside that install's root directory:
+**2. Make a new user** – you'll want it to be a `super` so you have access to everything.
 
 ```
-php please starter-kit:install statamic/starter-kit-starters-creek
+php please make:user
 ```
 
+**3. Recompile the CSS** (optional)
 
-### Customizing (optional)
-
-The [TailwindCSS](https://tailwindcss.com/) included in this kit is compiled with [PurgeCSS](https://purgecss.com/) to reduce filesize on any unused classes and selectors. If you want to modify anything you'll need to recompile it.
+The [TailwindCSS](https://tailwindcss.com/) included in this kit is compiled with [PurgeCSS](https://purgecss.com/) to reduce filesize on any unused classes and selectors. If you want to modify anything, just recompile it.
 
 ```
 npm i && npm run dev
@@ -57,6 +61,10 @@ To compile for production again:
 ```
 npm run production
 ```
+
+**4. Do your thing!**
+
+If you're using [Laravel Valet](https://laravel.com/docs/valet) (or similar), your site should be available at `http://blog-site.test`. You can access the control panel at `http://blog-site.test/cp` and login with your new user. Open up the source code, follow along with the [Statamic 3 docs](https://statamic.dev), and enjoy!
 
 ## Contributing
 

@@ -1,4 +1,4 @@
-{{ if settings:personality == "casual" }}
+{{ if $settings:personality == "casual" }}
 <style>
     :root{
       --font-display: 'Londrina Solid', 'sans-serif' !important;
@@ -8,7 +8,7 @@
 <link href="https://fonts.googleapis.com/css2?family=Londrina+Solid:wght@900&family=Poppins:ital,wght@0,400;0,600;1,400;1,700&display=swap" rel="stylesheet">
 {{ /if }}
 
-{{ if settings:personality == "formal" }}
+{{ if $settings:personality == "formal" }}
 <style>
     :root{
       --font-display: 'Inter', 'sans-serif' !important;
