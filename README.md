@@ -32,28 +32,26 @@
 
 ## Quick Start
 
-**1. Create a new site** cloning the repo and removing the origin repo.
+**1. Create a new site** with the [Statamic CLI](https://github.com/statamic/cli).
 
 ```
-git clone git@github.com:statamic/starter-kit-starters-creek.git blog-site
-cd blog-site
-rm -rf .git
-composer install
-cp .env.example .env && php artisan key:generate
+statamic new blog-site
 ```
 
-**2. Make a new user** – you'll want it to be a `super` so you have access to everything.
+**2. Enter the starter kit package name**
 
 ```
-php please make:user
+statamic/starter-kit-starters-creek
 ```
 
-**3. Recompile the CSS** (optional)
+**3. Follow the prompt to create a new Super Admin user.**
 
-The [TailwindCSS](https://tailwindcss.com/) included in this kit is compiled with [PurgeCSS](https://purgecss.com/) to reduce filesize on any unused classes and selectors. If you want to modify anything, just recompile it.
+**4. Recompile the CSS** (optional)
+
+The [TailwindCSS](https://tailwindcss.com/) included in this kit is compiled with [PurgeCSS](https://purgecss.com/) to reduce filesize on any unused classes and selectors. If you want to modify anything, just start the watcher to recompile it on the fly.
 
 ```
-npm i && npm run dev
+npm i && npm run watch
 ```
 
 To compile for production again:
@@ -62,9 +60,9 @@ To compile for production again:
 npm run production
 ```
 
-**4. Do your thing!**
+**5. Do your thing!**
 
-If you're using [Laravel Valet](https://laravel.com/docs/valet) (or similar), your site should be available at `http://blog-site.test`. You can access the control panel at `http://blog-site.test/cp` and login with your new user. Open up the source code, follow along with the [Statamic 3 docs](https://statamic.dev), and enjoy!
+If you're using [Laravel Valet](https://laravel.com/docs/valet) (or similar), your site should be available at `http://blog-site.test`. You can access the control panel at `http://blog-site.test/cp` and login with your new user. Open up the source code, follow along with the [Statamic docs](https://statamic.dev), and enjoy!
 
 ## Contributing
 
