@@ -13,5 +13,3 @@ export_paths:
   - tailwind.config.js
   - webpack.mix.js
   - README.md
-dependencies:
-  statamic/ssg: ^0.8.0
