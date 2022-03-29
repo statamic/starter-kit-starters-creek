@@ -8,7 +8,7 @@
 <!-- /statamic:hide -->
 
 ## Features
-"statamic/cms": "@dev","statamic/cms": "@dev",- Multi-author blog with author pages
+- Multi-author blog with author pages
 - [Bard](https://statamic.dev/fieldtypes/bard) focused writing experience
 - Code highlighting with [prism.js](https://prismjs.com/)
 - Two personality modes: `casual` and `formal` to adapt to your personal style
