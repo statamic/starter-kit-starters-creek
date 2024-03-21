@@ -13,5 +13,4 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::statamic('authors', 'author.index');
 Route::statamic('authors/{handle}', 'author.show');
