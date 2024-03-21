@@ -19,5 +19,8 @@
         "postcss-import": "^14.0.1",
         "tailwindcss": "^3.0.19",
         "vue-template-compiler": "^2.6.12"
+    },
+    "dependencies": {
+        "postcss-nesting": "^12.1.0"
     }
 }
