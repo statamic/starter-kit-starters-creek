@@ -8,10 +8,10 @@ export_paths:
   - resources/svg
   - resources/views
   - routes/web.php
+  - public/build
   - public/assets
-  - public/css
-  - public/js
   - package.json
+  - postcss.config.js
   - tailwind.config.js
-  - webpack.mix.js
+  - vite.config.js
   - README.md

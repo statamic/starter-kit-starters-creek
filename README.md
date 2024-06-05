@@ -4,7 +4,7 @@
   Statamic Starter Kit: Starter's Creek
 </h1>
 
-![Statamic 3.0+](https://img.shields.io/badge/Statamic-3.0+-FF269E?style=for-the-badge&link=https://statamic.com)
+![Statamic 3.4+](https://img.shields.io/badge/Statamic-3.4+-FF269E?style=for-the-badge&link=https://statamic.com)
 <!-- /statamic:hide -->
 
 ## Features
@@ -48,16 +48,16 @@ statamic/starter-kit-starters-creek
 
 **4. Recompile the CSS** (optional)
 
-The [TailwindCSS](https://tailwindcss.com/) included in this kit is compiled with [PurgeCSS](https://purgecss.com/) to reduce filesize on any unused classes and selectors. If you want to modify anything, just start the watcher to recompile it on the fly.
+The [TailwindCSS](https://tailwindcss.com/) included in this kit is compiled and purged to reduce filesize on any unused classes and selectors. If you want to modify anything, just recompile it.
 
 ```
-npm i && npm run watch
+npm i && npm run dev
 ```
 
 To compile for production again:
 
 ```
-npm run production
+npm run build
 ```
 
 **5. Do your thing!**

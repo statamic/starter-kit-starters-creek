@@ -1,3 +1,1 @@
-// This is all you.
-
-require('./prism.js')
+import './prism.js'

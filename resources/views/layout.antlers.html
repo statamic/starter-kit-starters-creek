@@ -19,10 +19,9 @@
               "description": "{{ $intro | strip_tags | entities }}"
             }
         </script>
-        <link rel="stylesheet" href="{{ mix src='css/tailwind.css' }}">
+        {{ vite src="resources/js/site.js|resources/css/tailwind.css" }}
         {{ partial:personality }}
         <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.min.js" defer></script>
-        <script src="{{ mix src='/js/site.js' }}"></script>
     </head>
     <body class="bg-white text-black font-body leading-normal personality-{{ $settings:personality }}">
         {{ partial:nav }}
