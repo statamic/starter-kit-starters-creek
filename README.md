@@ -1,5 +1,6 @@
 <!-- statamic:hide -->
-<p align="center"><img src="https://statamic.com/assets/branding/Statamic-Logo-Rad.png" width="100" alt="Statamic Logo" /></p>
+<p align="center"><img src="https://statamic.com/assets/branding/squircle/statamic-mark-lime.svg" width="100" alt="Statamic Logo" /></p>
+
 <h1 align="center">
   Statamic Starter Kit: Starter's Creek
 </h1>
