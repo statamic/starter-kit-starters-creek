@@ -9,3 +9,17 @@ sort_dir: asc
 date_behavior:
   past: public
   future: private
+inject:
+  seo:
+    json_ld_schema: |-
+      {
+      		"@context": "https://schema.org/",
+          "@type": "blogPost",
+          "name": "{{ title }}",
+          "author": {
+              "@type": "Person",
+              "name": "{{ author:name }}"
+          },
+          "datePublished": "{{ date | format("Y-m-d") }}",
+          "description": "{{ intro | strip_tags | entities }}"
+      }
