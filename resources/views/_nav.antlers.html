@@ -1,14 +1,14 @@
 <nav x-data="{searching: false}">
     <div class="max-w-5xl mx-auto px-3 py-3 flex items-center justify-between h-16">
         <a href="/" class="font-bold text-xl hover:text-hot-pink" x-show="! searching">{{ settings:site_name }}</a>
-        <button class="hover:text-hot-pink transition-all duration-100 outline-none" @click="searching = true; $nextTick(() => { $refs.search.focus() })" aria-label="Search the site">
+        <button class="hover:text-hot-pink transition-all duration-100 outline-hidden" @click="searching = true; $nextTick(() => { $refs.search.focus() })" aria-label="Search the site">
             {{ svg src="search-{settings:personality}" class="w-6 h-6" }}
         </button>
         <form action="/search" x-show="searching" x-cloak class="flex-1">
             <input
                 name="q"
                 type="text"
-                class="w-full outline-none px-2 py-1 ml-3"
+                class="w-full outline-hidden px-2 py-1 ml-3"
                 placeholder="Search for stuff"
                 x-on:blur="searching = false"
                 @keydown.enter="search"

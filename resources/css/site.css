@@ -1,3 +1,16 @@
+@import "tailwindcss";
+
+@theme {
+    --color-black: #12151E;
+    --color-hot-pink: #fd2d78;
+
+    --font-display: var(--font-display);
+    --font-body: var(--font-body);
+}
+
+@import "./code.css";
+@import "./content.css";
+
 .personality-casual {
     .squiggle {
         filter: url("#squiggle");
@@ -45,4 +58,3 @@
   }
 
 [x-cloak] { display: none; }
-
