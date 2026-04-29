@@ -31,7 +31,7 @@
 
 /* Code blocks */
 pre[class*="language-"] {
-	@apply rounded-sm mb-6 p-2 overflow-auto;
+	@apply rounded-xs mb-6 p-2 overflow-auto;
 }
 
 /* :not(pre)>code[class*="language-"], */
