@@ -1,0 +1,7 @@
+{{ partial:page_heading eyebrow="Articles filed under" }}
+{{ collection:blog :taxonomy:topics="slug" sort='date:desc' paginate='12' as='articles' }}
+    {{ if no_results }}<p class="py-10 text-lg">Nothing filed here yet. Try another topic.</p>{{ /if }}
+    <div class="grid gap-8 md:grid-cols-2 lg:grid-cols-3">{{ articles }}{{ partial:blog/card }}{{ /articles }}</div>
+    {{ paginate }}{{ partial:pagination }}{{ /paginate }}
+{{ /collection:blog }}
+<p class="mt-12"><a class="inline-flex min-h-12 items-center underline" href="/topics">← All topics</a></p>

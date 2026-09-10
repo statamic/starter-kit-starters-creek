@@ -1,20 +1,17 @@
-<article class="max-w-5xl mx-auto">
-    <header class="mx-auto max-w-3xl text-center content">
-        <h1 class="mb-4">{{ title }}</h1>
-        <p>Here's what we could find for "{{ get:q }}".</p>
-    </header>
-
-    <section class="max-w-6xl mx-auto py-6">
-        {{ search:results as="results" }}
-            {{ if ! results }}
-                <h2 class="text-center">No results.</h2>
-            {{ else }}
-            <section class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 py-8">
-                {{ results }}
-                    {{ partial:blog/card }}
-                {{ /results }}
-            </section>
+{{ partial:page_heading heading="Search" eyebrow="Find something worth reading" }}
+<form action="/search" method="get" role="search" aria-label="Search articles" class="mb-12 flex max-w-2xl items-end gap-4">
+    <div class="min-w-0 flex-1"><label for="query" class="mb-3 block">Search articles</label><input id="query" type="search" name="q" maxlength="200" value="{{ search_query | entities }}" placeholder="A word, an idea, a half-remembered title…" class="w-full border-b border-current bg-transparent px-1 py-4"></div><button type="submit" class="min-h-14 px-4 py-3 underline">Search</button>
+</form>
+{{ if has_search_query }}
+    {{ if has_articles }}
+        {{ search:results index="blog" :for="search_query" paginate="12" as="articles" }}
+            {{ if no_results }}<p class="py-8 text-lg">No articles found for “{{ search_query | entities }}”. Try another word.</p>{{ else }}
+                <p class="mb-8 text-lg">Results for “{{ search_query | entities }}”</p>
+                <div class="grid gap-8 md:grid-cols-2 lg:grid-cols-3">{{ articles }}{{ partial:blog/card }}{{ /articles }}</div>
+                {{ paginate }}{{ partial:pagination previous_label="← Previous results" next_label="More results →" }}{{ /paginate }}
             {{ /if }}
         {{ /search:results }}
-    </section>
-</article>
+    {{ else }}<p class="py-8 text-lg">No articles found. Check back once the first article is published.</p>{{ /if }}
+{{ else }}
+    <p class="text-lg text-gray-600 dark:text-gray-300">Search our articles, or start with <a href="/topics" class="underline">a topic</a>.</p>
+{{ /if }}

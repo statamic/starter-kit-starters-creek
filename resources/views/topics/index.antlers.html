@@ -1,0 +1,11 @@
+{{ partial:page_heading eyebrow="Follow your curiosity" :description="intro" }}
+<div class="grid gap-x-8 md:grid-cols-2">
+{{ taxonomy:topics }}
+    {{ if no_results }}<p class="py-8 text-lg">Topics will appear here as the publication grows.</p>{{ else }}
+    <article class="border-t border-current/20 py-8">
+        <div class="flex items-baseline justify-between gap-4"><h2 class="font-display text-4xl casual:uppercase formal:text-2xl formal:font-semibold"><a href="{{ url }}" class="hover:text-accent">{{ title }} ↗</a></h2></div>
+        {{ if description }}<p class="mt-4 max-w-[48ch] text-lg leading-8 text-gray-600 dark:text-gray-300">{{ description }}</p>{{ /if }}
+    </article>
+    {{ /if }}
+{{ /taxonomy:topics }}
+</div>

@@ -71,7 +71,7 @@ return [
     */
 
     'exclude' => [
-        //
+        '/search', // Search must be served by the PHP application.
     ],
 
     /*

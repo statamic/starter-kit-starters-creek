@@ -1,64 +1,83 @@
-sections:
+title: Settings
+tabs:
   main:
     display: Main
-    fields:
+    sections:
       -
-        handle: site_name
-        field:
-          character_limit: 0
-          type: text
-          display: 'Site Name'
-          instructions: 'Shown in the nav and footer.'
-          listable: hidden
-          input_type: text
-      -
-        handle: personality
-        field:
-          options:
-            casual: Casual
-            formal: Formal
-          inline: true
-          type: radio
-          instructions: 'Subtly alter the personality of the site.'
-          listable: hidden
-          display: Personality
-      -
-        handle: show_signup
-        field:
-          type: toggle
-          instructions: 'Show the newsletter signup form on the blog.show pages.'
-          listable: hidden
-          display: 'Show Signup'
-      -
-        handle: social
-        field:
-          fields:
-            -
-              handle: name
-              field:
-                type: text
-                display: Name
-            -
-              handle: url
-              field:
-                character_limit: 0
-                type: text
-                display: URL
-            -
-              handle: icon
-              field:
-                container: assets
-                mode: list
-                restrict: true
-                folder: site/social-icons
-                allow_uploads: true
-                max_files: 1
-                type: assets
-                display: Icon
-          mode: table
-          add_row: 'Add Link'
-          reorderable: true
-          type: grid
-          instructions: 'Set social media links for the footer.'
-          display: Social
-          listable: hidden
+        fields:
+          -
+            handle: site_name
+            field:
+              character_limit: 0
+              type: text
+              display: 'Site Name'
+              instructions: 'Shown in the nav and footer.'
+              listable: hidden
+              input_type: text
+          -
+            handle: personality
+            field:
+              options:
+                casual: Casual
+                formal: Formal
+              inline: true
+              type: radio
+              instructions: 'Subtly alter the personality of the site.'
+              listable: hidden
+              display: Personality
+          -
+            handle: show_signup
+            field:
+              type: toggle
+              instructions: 'Show newsletter links when a signup URL is configured.'
+              listable: hidden
+              display: 'Show Signup'
+          -
+            handle: social
+            field:
+              fields:
+                -
+                  handle: name
+                  field:
+                    type: text
+                    display: Name
+                -
+                  handle: url
+                  field:
+                    character_limit: 0
+                    type: text
+                    display: URL
+                -
+                  handle: icon
+                  field:
+                    type: icon
+                    mode: compact
+                    set: social
+                    display: Icon
+              mode: table
+              add_row: 'Add Link'
+              reorderable: true
+              type: grid
+              instructions: 'Set social media links for the footer.'
+              display: Social
+              listable: hidden
+          -
+            handle: description
+            field:
+              type: textarea
+              display: 'Site description'
+          -
+            handle: signup_url
+            field:
+              type: text
+              display: 'Newsletter signup URL'
+              input_type: url
+              validate:
+                - nullable
+                - url
+              instructions: 'Link to your newsletter provider’s signup page. Leave blank to hide signup.'
+          -
+            handle: signup_description
+            field:
+              type: textarea
+              display: 'Newsletter description'

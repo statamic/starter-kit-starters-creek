@@ -1,0 +1,17 @@
+{{ partial:page_heading eyebrow="A little introduction" :description="intro" }}
+<div class="grid items-start gap-8 lg:grid-cols-[3fr_2fr] lg:gap-12">
+    <div class="prose max-w-[65ch]">{{ content }}</div>
+    <aside class="rounded-lg border border-current/20 p-8 formal:rounded-sm">
+        <p class="mb-4 font-mono text-base text-accent sm:text-sm">{{ partial:personality_string key="about_motto_heading" }}</p>
+        <p class="font-display text-5xl casual:uppercase formal:text-3xl formal:font-medium">Pay attention.<br>Ask questions.<br>Make something.</p>
+    </aside>
+</div>
+<section class="mt-16 border-t border-current/20 pt-10">
+    <h2 class="font-display text-4xl casual:uppercase formal:text-2xl formal:font-semibold">Contributors</h2>
+    <ul role="list" class="mt-8 grid gap-8 md:grid-cols-2">
+    {{ users contributor:is="true" }}
+        <li class="flex items-start gap-5">{{ if avatar }}<img src="{{ glide:avatar width='128' height='128' fit='crop_focal' }}" alt="" width="64" height="64" class="size-16 shrink-0 rounded-full">{{ /if }}<div><h3 class="text-xl font-semibold"><a href="/authors/{{ handle }}" class="hover:text-accent">{{ name }}</a></h3>{{ if bio }}<p class="mt-2 max-w-[48ch] leading-7 text-gray-600 dark:text-gray-300">{{ bio }}</p>{{ /if }}</div></li>
+    {{ /users }}
+    </ul>
+    <p class="mt-8"><a href="/archive" class="underline">Browse our articles ↗</a></p>
+</section>

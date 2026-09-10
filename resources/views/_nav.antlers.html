@@ -1,22 +1,24 @@
-<nav x-data="{searching: false}">
-    <div class="max-w-5xl mx-auto px-3 py-3 flex items-center justify-between h-16">
-        <a href="/" class="font-bold text-xl hover:text-hot-pink" x-show="! searching">{{ settings:site_name }}</a>
-        <button class="hover:text-hot-pink transition-all duration-100 outline-hidden" @click="searching = true; $nextTick(() => { $refs.search.focus() })" aria-label="Search the site">
-            {{ svg src="search-{settings:personality}" class="w-6 h-6" }}
-        </button>
-        <form action="/search" x-show="searching" x-cloak class="flex-1">
-            <input
-                name="q"
-                type="text"
-                class="w-full outline-hidden px-2 py-1 ml-3"
-                placeholder="Search for stuff"
-                x-on:blur="searching = false"
-                @keydown.enter="search"
-                @keydown.esc="searching = false"
-                x-show="searching"
-                x-ref="search"
-            />
-        </form>
+<header x-data="navigation" @keydown.escape="close()" class="mx-auto max-w-7xl px-5 sm:px-10">
+    <div class="flex min-h-24 flex-wrap items-center justify-between gap-x-5 gap-y-2 py-4">
+        <a href="/" aria-label="Homepage" class="font-display text-2xl sm:text-3xl casual:uppercase formal:text-xl formal:sm:text-xl formal:font-semibold">{{ settings:site_name }}</a>
+        <nav aria-label="Main navigation" class="flex items-center gap-8 text-base max-lg:hidden sm:text-sm">
+            {{ nav:main }}<a href="{{ url }}" class="py-3 hover:text-accent {{ if is_current || is_parent }}underline decoration-2 decoration-accent underline-offset-8{{ /if }}" {{ if is_current }}aria-current="page"{{ /if }}>{{ title }}</a>{{ /nav:main }}
+        </nav>
+        <div class="flex items-center gap-1">
+            <a href="/search" x-ref="searchButton" @click.prevent="openSearch()" aria-label="Search the site" :aria-expanded="searchOpen" aria-controls="header-search" class="flex size-12 items-center justify-center hover:text-accent">{{ svg src="search-{settings:personality}" class="size-6" aria-hidden="true" }}</a>
+            {{ partial:theme_switch }}
+            <button type="button" x-cloak x-ref="menuButton" @click="open = !open; searchOpen = false" :aria-expanded="open" aria-controls="mobile-navigation" class="min-h-12 px-2 lg:hidden">Menu</button>
+        </div>
     </div>
-    <div class="w-full border-b-2 border-black squiggle"></div>
-</nav>
+    <nav id="mobile-navigation" aria-label="Mobile navigation" x-cloak x-show="open" class="pb-5 lg:hidden">
+        {{ nav:main }}<a href="{{ url }}" class="block py-3 hover:text-accent" {{ if is_current }}aria-current="page"{{ /if }}>{{ title }}</a>{{ /nav:main }}
+    </nav>
+    <noscript><nav aria-label="Mobile navigation" class="flex flex-wrap gap-4 pb-5 lg:hidden">{{ nav:main }}<a href="{{ url }}" class="py-2">{{ title }}</a>{{ /nav:main }}</nav></noscript>
+    <form id="header-search" action="/search" method="get" role="search" x-show="searchOpen" x-cloak class="flex gap-3 pb-6">
+        <label class="sr-only" for="header-query">Search articles</label>
+        <input id="header-query" name="q" type="search" maxlength="200" x-ref="search" class="min-w-0 flex-1 border-b border-current bg-transparent px-1 py-3" placeholder="Search articles">
+        <button type="submit" class="px-3 py-3 underline">Search</button>
+        <button type="button" @click="close()" class="px-3 py-3">Close</button>
+    </form>
+    <div class="creek-rule" aria-hidden="true"></div>
+</header>

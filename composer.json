@@ -2,8 +2,8 @@
     "name": "statamic/starter-kit-starters-creek",
     "extra": {
         "statamic": {
-            "name": "Starter Kit: Starters Creek",
-            "description": "Statamic Starter Kit: Starters"
+            "name": "Starter Kit: Starter’s Creek",
+            "description": "A two-personality publication kit with light and dark themes."
         }
     }
 }

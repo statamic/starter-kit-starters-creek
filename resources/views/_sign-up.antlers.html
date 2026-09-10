@@ -1,14 +1,7 @@
-<aside class="text-center py-16 max-w-3xl mx-auto">
-    <div class="w-full border-t-2 mb-8 border-black squiggle"></div>
-    <h3 class="font-display text-4xl uppercase font-bold leading-none">Sign up for our newsletter</h3>
-    <p class="text-lg mt-8">Join our newsletter and get resources, curated content, and design inspiration delivered straight to your inbox.</p>
-
-    {{# This is a static form you can wire up to anything. #}}
-    <form action="" class="mt-8 flex flex-wrap items-center md:w-2/3 mx-auto">
-        <label for="email" class="sr-only"></label>
-        <input id="email" class="w-full flex-1 bg-gray-200 py-3 px-6 rounded" type="email" placeholder="Your email" required>
-        <button class="bg-black md:ml-3 mt-3 md:mt-0 w-full md:w-auto text-white py-3 px-6 rounded hover:squiggle" type="submit">Subscribe</button>
-    </form>
-
-    <div class="w-full border-b-2 pt-12 border-black squiggle"></div>
+{{ if settings:show_signup && settings:signup_url }}
+<aside class="mt-16 border-y border-current/20 py-10">
+    <h2 class="font-display text-4xl casual:uppercase formal:text-2xl formal:font-semibold">{{ partial:personality_string key="newsletter_heading" }}</h2>
+    <p class="mt-4 max-w-[48ch] text-lg text-gray-600 dark:text-gray-300">{{ settings:signup_description ?? 'New articles and things worth your time, delivered occasionally.' }}</p>
+    <a href="{{ settings:signup_url }}" class="mt-6 inline-flex min-h-12 items-center gap-4 rounded-sm bg-ink px-4 py-3 text-white dark:bg-gray-100 dark:text-ink">Subscribe <span aria-hidden="true">↗</span></a>
 </aside>
+{{ /if }}

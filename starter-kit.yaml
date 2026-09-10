@@ -1,6 +1,8 @@
 export_paths:
+  - app/Providers/AppServiceProvider.php
   - content
   - config/statamic/ssg.php
+  - config/statamic/search.php
   - resources/addons/seo-pro.yaml
   - resources/blueprints
   - resources/css
@@ -11,5 +13,6 @@ export_paths:
   - public/build
   - public/assets
   - package.json
+  - package-lock.json
   - vite.config.js
   - README.md

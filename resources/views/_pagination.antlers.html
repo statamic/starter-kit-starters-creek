@@ -1,0 +1,7 @@
+{{ if prev_page || next_page }}
+<nav aria-label="Pagination" class="mt-12 flex flex-wrap items-center justify-between gap-6 border-t border-current/20 pt-6">
+    {{ if prev_page }}<a href="{{ prev_page }}" rel="prev" class="py-3 hover:text-accent">{{ previous_label ?? '← Newer articles' }}</a>{{ /if }}
+    <p class="font-mono text-base text-gray-600 sm:text-sm dark:text-gray-400">Page {{ current_page }} of {{ total_pages }}</p>
+    {{ if next_page }}<a href="{{ next_page }}" rel="next" class="py-3 hover:text-accent">{{ next_label ?? 'Older articles →' }}</a>{{ /if }}
+</nav>
+{{ /if }}

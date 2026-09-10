@@ -1,0 +1,11 @@
+<script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    "headline": {{ title | to_json:safe }},
+    "description": {{ intro | strip_tags | decode | to_json:safe }},
+    "datePublished": {{ date | format('Y-m-d') | to_json:safe }},
+    "url": {{ permalink | to_json:safe }}{{ if author }},
+    "author": { "@type": "Person", "name": {{ author:name | to_json:safe }} }{{ /if }}
+}
+</script>

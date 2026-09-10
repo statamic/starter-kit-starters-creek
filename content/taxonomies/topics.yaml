@@ -1,0 +1,4 @@
+title: Topics
+template: topics/index
+term_template: topics/show
+layout: layout

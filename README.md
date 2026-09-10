@@ -1,67 +1,115 @@
 <!-- statamic:hide -->
 <p align="center"><img src="https://statamic.com/assets/branding/squircle/statamic-mark-lime.svg" width="100" alt="Statamic Logo" /></p>
 
-<h1 align="center">
-  Statamic Starter Kit: Starter's Creek
-</h1>
+<h1 align="center">Statamic Starter Kit: Starter’s Creek</h1>
 <!-- /statamic:hide -->
 
+An independent-publication starter kit for Statamic. Two personalities, four ways to read.
+
 ## Features
-- Multi-author blog with author pages
-- [Bard](https://statamic.dev/fieldtypes/bard) focused writing experience
-- Code highlighting with [prism.js](https://prismjs.com/)
-- Two personality modes: `casual` and `formal` to adapt to your personal style
-- Customizable social links and icons
-- Configurable static newsletter sign up form on blog pages
-- Pre-configured, native search
-- Automatic image resizing with Glide
-- Beautifully responsive
-- [Static Site Generator](https://github.com/statamic/ssg) ready
-- Built with [TailwindCSS](https://tailwindcss.com)
-- Itty bitty [Alpine.js](https://github.com/alpinejs/alpine) for interactions
-- :100:/:100:/:100:/:100: Lighthouse score
+
+- **Casual:** Londrina Solid, Poppins, paper tones, hand-drawn rules, tilted artwork, and a little editorial mischief.
+- **Formal:** Inter Variable, straight rules, restrained accents, and quieter layouts.
+- **Light and dark:** a sun-and-moon toggle, system preference by default, and a remembered reader choice.
+- Featured homepage, chronological archive, topics, About, author profiles, search, and a custom 404.
+- Bard articles with code highlighting, captioned images, pull quotes, tables, and related reading.
+- Optional newsletter signup link and configurable social links.
+- Tailwind CSS 4, Vite 8, Alpine 3, and responsive Glide images.
 
 <!-- statamic:hide -->
 ## Screenshots
 
-| Casual  | Formal  |
-|---|---|
-| ![Casual Screenshot](https://github.com/statamic/starter-kit-starters-creek/raw/master/screenshot-casual.jpg)  |  ![Formal Screenshot](https://github.com/statamic/starter-kit-starters-creek/raw/master/screenshot-formal.jpg) |
+| Casual | Formal |
+| --- | --- |
+| ![Casual homepage](https://github.com/statamic/starter-kit-starters-creek/raw/master/screenshot-casual.png) | ![Formal homepage](https://github.com/statamic/starter-kit-starters-creek/raw/master/screenshot-formal.png) |
+
+[Casual dark mode](https://github.com/statamic/starter-kit-starters-creek/raw/master/screenshot-casual-dark.png) · [Formal dark mode](https://github.com/statamic/starter-kit-starters-creek/raw/master/screenshot-formal-dark.png)
 <!-- /statamic:hide -->
 
 ## Quick Start
 
-**1. Create a new site** with the [Statamic CLI](https://github.com/statamic/cli).
+Create a new Statamic site with the Statamic CLI:
 
-```
-statamic new blog-site
-```
-
-**2. Enter the starter kit package name**
-
-```
-statamic/starter-kit-starters-creek
+```sh
+statamic new creek-site statamic/starter-kit-starters-creek
+cd creek-site
+php please search:update --all
 ```
 
-**3. Follow the prompt to create a new Super Admin user.**
+Follow the installer’s user-creation prompts. With Herd, open `http://creek-site.test` and `/cp` to edit the site. The included production assets let you start without running a development server.
 
-**4. Recompile the CSS** (optional)
+This refresh targets Statamic 6 and PHP 8.3+. Multiple users require Statamic Pro; local trial mode is suitable for development. No user accounts or credentials are distributed with the kit. Assign article authors after creating your own users.
 
-The [TailwindCSS](https://tailwindcss.com/) included in this kit is compiled and purged to reduce filesize on any unused classes and selectors. If you want to modify anything, just recompile it.
+To edit the frontend, use Node 22.12+ (or another version supported by Vite 8):
 
-```
-npm i && npm run dev
-```
-
-To compile for production again:
-
-```
+```sh
+npm ci
+npm run dev
+# Or generate production assets:
 npm run build
 ```
 
-**5. Do your thing!**
+## Writing and Customization
 
-If you're using [Laravel Valet](https://laravel.com/docs/valet) (or similar), your site should be available at `http://blog-site.test`. You can access the control panel at `http://blog-site.test/cp` and login with your new user. Open up the source code, follow along with the [Statamic docs](https://statamic.dev), and enjoy!
+- **Globals → Settings:** site name and description, casual/formal personality, social links with a compact icon picker, and newsletter settings. The newsletter link appears only when Show Signup is enabled and a valid signup URL is supplied. Link to your provider’s signup page; the kit does not collect email addresses.
+- **Globals → Personality Strings:** edit casual and formal headlines, section labels, footer copy, newsletter heading, and 404 messages in separate tabs. The active personality is still selected in Settings.
+- **Collections → Pages → Home:** eyebrow and introduction. The newest published article leads the homepage.
+- **Collections → Blog:** optional hero image, author, topics, and Bard content. Existing `/{slug}` article URLs are preserved.
+- **Taxonomies → Topics:** titles and descriptions. `/topics/{slug}` lists published articles in that topic.
+- **Navigation → Main:** links used in the header, mobile menu, and footer.
+- **Users:** optional public handle, biography, avatar, and website. Enable Show on About page for contributors. A public handle gives the user an `/authors/{handle}` profile.
+
+The default pages use the Pages blueprint; Home has its own blueprint. Select the Pages blueprint for additional content pages and use the `default` template for a simple Markdown page.
+
+Personality is a publication-wide editorial setting. The light switch is a reader preference, stored separately as `starters-creek-theme`. It follows the operating system until the reader chooses a theme. Without JavaScript, articles and navigation remain available and the color scheme follows the system.
+
+The kit supplies escaped BlogPosting JSON-LD on article pages. If SEO Pro is installed, its metadata replaces the fallback title, description, and canonical tags; the article schema remains available alongside its site schema.
+
+## Search and static output
+
+Search uses the `blog` local index and searches article titles, introductions, and Bard content. Run `php please search:update --all` after installation or bulk file imports. Drafts and future-dated articles are excluded from public results.
+
+Static output is optional:
+
+```sh
+composer require statamic/ssg
+# Set APP_URL to the intended site URL before generating.
+php please ssg:generate
+```
+
+Output goes to `storage/app/static`. Article, page, topic, author, and 404 templates can be generated, along with Glide images and compiled assets. Custom author URLs are registered automatically when SSG is installed.
+
+**Search requires PHP.** `/search` is excluded from static generation. Route that endpoint to the Statamic application, or replace/remove search links and forms before deploying to a purely static host. Configure the host to serve `404.html` with a 404 status. Newsletter links work without a backend in the kit.
+
+## Developing this kit
+
+Keep the kit checkout separate from its installed preview application. Register the checkout as a Composer path repository in the preview, then install it locally:
+
+```sh
+composer config repositories.starters-creek path /absolute/path/to/starter-kit-starters-creek
+php please starter-kit:install statamic/starter-kit-starters-creek --local --with-config
+php please search:update --all
+```
+
+From the kit checkout, build and copy kit-owned files into that preview:
+
+```sh
+npm run build
+php scripts/sync-preview.php /absolute/path/to/preview
+```
+
+Sync overwrites the preview’s kit-owned content, templates, routes, and assets. It leaves `.env`, users, and installed packages alone; it replaces exported configuration and `AppServiceProvider.php`. Make lasting changes in the kit checkout. The helper clears the Stache and rebuilds search; it does not delete files that were removed from the kit.
+
+Repository checks:
+
+```sh
+node --test tests/theme.test.mjs
+php tests/smoke.php http://your-preview.test
+npm run build
+git diff --check
+```
+
+The smoke test expects the bundled sample content. Browser verification is still required for visual and interaction changes.
 
 ## Contributing
 

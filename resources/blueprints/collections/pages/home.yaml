@@ -1,0 +1,24 @@
+title: Home
+tabs:
+  main:
+    display: Main
+    sections:
+      -
+        fields:
+          -
+            handle: title
+            field:
+              type: text
+              display: Title
+              validate:
+                - required
+          -
+            handle: eyebrow
+            field:
+              type: text
+              display: Eyebrow
+          -
+            handle: intro
+            field:
+              type: textarea
+              display: Introduction

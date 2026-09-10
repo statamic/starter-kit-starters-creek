@@ -1,42 +1,29 @@
-<article class="max-w-5xl mx-auto px-3">
-    <header class="mx-auto max-w-3xl text-center content">
-        <h1>{{ $title }}</h1>
-        {{ $intro }}
-        <div class="my-12 flex items-center justify-center">
-            {{ if $author }}
-            <img src="{{ $author:avatar ?? $author:email | gravatar(160) }}" class="h-20 w-20 my-0 rounded-full mr-4">
-            {{ /if }}
-            <div class="text-left">
-                {{ if author }}
-                <div>
-                    <a class="font-bold no-underline" href="/authors/{{ $author:handle }}">
-                        <span class="bg-clip-text text-transparent bg-gradient-to-r from-hot-pink to-purple-500">
-                            {{ $author:name }}
-                        </span>
-                    </a>
-                </div>
-                {{ /if }}
-                <time datetime="{{ $date | format('Y-m-d') }}">{{ $date }}</time>
-            </div>
+<article>
+    <header class="mx-auto max-w-4xl pb-10 text-center sm:pb-14">
+        <div class="mb-6 flex flex-wrap justify-center gap-3 font-mono text-base sm:text-sm">{{ topics }}<a href="{{ url }}" class="rounded-full border border-current/20 px-4 py-2 text-accent casual:odd:-rotate-2 formal:rounded-sm">{{ title }}</a>{{ /topics }}</div>
+        <h1 class="font-display text-5xl text-pretty casual:uppercase sm:text-7xl formal:font-semibold formal:tracking-tight formal:sm:text-6xl">{{ title }}</h1>
+        {{ if intro }}<div class="mx-auto mt-7 max-w-[55ch] text-balance text-lg leading-8 text-gray-600 dark:text-gray-300">{{ intro }}</div>{{ /if }}
+        <div class="mt-8 flex flex-wrap items-center justify-center gap-4 text-base sm:text-sm">
+            {{ if author }}{{ if author:avatar }}<img src="{{ glide :src='author:avatar' width='96' height='96' fit='crop_focal' }}" width="48" height="48" alt="" class="size-12 rounded-full">{{ /if }}<a href="/authors/{{ author:handle }}" class="font-medium underline">{{ author:name }}</a><span aria-hidden="true">·</span>{{ /if }}
+            <time datetime="{{ date format='Y-m-d' }}">{{ date format='F j, Y' }}</time>
+            <span aria-hidden="true">·</span><p>{{ main_content | bard_text | read_time }} min read</p>
         </div>
     </header>
-    <img class="rounded-xl" src="{{ $hero_image }}" alt="{{ $hero_image:alt }}">
-    <section class="max-w-3xl mx-auto py-6 lg:py-12 content">
+    {{ if hero_image }}<img src="{{ glide:hero_image width='1800' height='1000' fit='crop_focal' }}" width="1800" height="1000" alt="{{ hero_image:alt }}" class="mx-auto aspect-9/5 w-full rounded-lg object-cover formal:rounded-sm">{{ /if }}
+    <div class="mx-auto max-w-[65ch] pt-10 sm:pt-14">
+        <div class="prose">
         {{ main_content }}
-            {{ if $type == "text" }}
-                {{ $text }}
-            {{ elseif $type == "code_block" }}
-<pre class="language-{{ $mode ?? 'php' }} rounded"><code>{{ $code | sanitize }}</code></pre>
-            {{ elseif $type == "image" }}
-                <figure>
-                    <img src="{{ $image }}" alt="{{ $caption }}" />
-                    <figcaption>{{ $caption }}</figcaption>
-                </figure>
+            {{ if type == 'text' }}{{ text }}
+            {{ elseif type == 'code_block' }}<pre class="language-{{ mode ?? 'php' }}"><code>{{ code | entities }}</code></pre>
+            {{ elseif type == 'image' }}<figure>{{ if image }}<img src="{{ glide:image width='1400' }}" alt="{{ image:alt }}" loading="lazy">{{ /if }}{{ if caption }}<figcaption>{{ caption }}</figcaption>{{ /if }}</figure>
+            {{ elseif type == 'pull_quote' }}<blockquote><p>{{ quote }}</p>{{ if attribution }}<cite>{{ attribution }}</cite>{{ /if }}</blockquote>
             {{ /if }}
         {{ /main_content }}
+        </div>
+        {{ partial:sign-up }}
+    </div>
+    <section class="mt-16 border-t border-current/20 pt-10" aria-labelledby="related-heading">
+        <h2 id="related-heading" class="mb-8 font-display text-4xl casual:uppercase formal:text-2xl formal:font-semibold">{{ partial:personality_string key="related_heading" }}</h2>
+        <div class="grid gap-8 md:grid-cols-2 lg:grid-cols-3">{{ collection:blog :id:not="id" sort='date:desc' limit='3' as='related' }}{{ related }}{{ partial:blog/card }}{{ /related }}{{ /collection:blog }}</div>
     </section>
-
-    {{ if $settings:show_signup }}
-        {{ partial:sign-up}}
-    {{ /if }}
 </article>

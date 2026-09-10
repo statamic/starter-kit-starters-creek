@@ -1,0 +1,180 @@
+title: Personality Strings
+tabs:
+  casual:
+    display: Casual
+    sections:
+      -
+        instructions: "Copy used when Settings → Personality is casual. Plain text only."
+        fields:
+          -
+            handle: casual
+            field:
+              type: group
+              display: Casual
+              fields:
+                -
+                  handle: home_headline
+                  field:
+                    type: text
+                    display: "Home headline"
+                    validate:
+                      - required
+                -
+                  handle: about_link
+                  field:
+                    type: text
+                    display: "About link"
+                    validate:
+                      - required
+                -
+                  handle: featured_heading
+                  field:
+                    type: text
+                    display: "Featured heading"
+                    validate:
+                      - required
+                -
+                  handle: recent_heading
+                  field:
+                    type: text
+                    display: "Recent heading"
+                    validate:
+                      - required
+                -
+                  handle: topics_heading
+                  field:
+                    type: text
+                    display: "Topics heading"
+                    validate:
+                      - required
+                -
+                  handle: related_heading
+                  field:
+                    type: text
+                    display: "Related heading"
+                    validate:
+                      - required
+                -
+                  handle: about_motto_heading
+                  field:
+                    type: text
+                    display: "About motto heading"
+                    validate:
+                      - required
+                -
+                  handle: footer_description
+                  field:
+                    type: textarea
+                    display: "Footer description"
+                    validate:
+                      - required
+                -
+                  handle: newsletter_heading
+                  field:
+                    type: text
+                    display: "Newsletter heading"
+                    validate:
+                      - required
+                -
+                  handle: not_found_heading
+                  field:
+                    type: text
+                    display: "Not found heading"
+                    validate:
+                      - required
+                -
+                  handle: not_found_description
+                  field:
+                    type: textarea
+                    display: "Not found description"
+                    validate:
+                      - required
+  formal:
+    display: Formal
+    sections:
+      -
+        instructions: "Copy used when Settings → Personality is formal. Plain text only."
+        fields:
+          -
+            handle: formal
+            field:
+              type: group
+              display: Formal
+              fields:
+                -
+                  handle: home_headline
+                  field:
+                    type: text
+                    display: "Home headline"
+                    validate:
+                      - required
+                -
+                  handle: about_link
+                  field:
+                    type: text
+                    display: "About link"
+                    validate:
+                      - required
+                -
+                  handle: featured_heading
+                  field:
+                    type: text
+                    display: "Featured heading"
+                    validate:
+                      - required
+                -
+                  handle: recent_heading
+                  field:
+                    type: text
+                    display: "Recent heading"
+                    validate:
+                      - required
+                -
+                  handle: topics_heading
+                  field:
+                    type: text
+                    display: "Topics heading"
+                    validate:
+                      - required
+                -
+                  handle: related_heading
+                  field:
+                    type: text
+                    display: "Related heading"
+                    validate:
+                      - required
+                -
+                  handle: about_motto_heading
+                  field:
+                    type: text
+                    display: "About motto heading"
+                    validate:
+                      - required
+                -
+                  handle: footer_description
+                  field:
+                    type: textarea
+                    display: "Footer description"
+                    validate:
+                      - required
+                -
+                  handle: newsletter_heading
+                  field:
+                    type: text
+                    display: "Newsletter heading"
+                    validate:
+                      - required
+                -
+                  handle: not_found_heading
+                  field:
+                    type: text
+                    display: "Not found heading"
+                    validate:
+                      - required
+                -
+                  handle: not_found_description
+                  field:
+                    type: textarea
+                    display: "Not found description"
+                    validate:
+                      - required

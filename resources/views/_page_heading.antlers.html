@@ -1,0 +1,5 @@
+<header class="mb-12">
+    {{ if eyebrow }}<p class="mb-5 font-mono text-base text-accent sm:text-sm">{{ eyebrow }}</p>{{ /if }}
+    <h1 class="max-w-[20ch] font-display text-6xl text-balance casual:uppercase sm:text-7xl formal:font-semibold formal:tracking-tight formal:sm:text-6xl">{{ heading ?? title }}</h1>
+    {{ if description }}<p class="mt-6 max-w-[48ch] text-lg leading-8 text-gray-600 dark:text-gray-300">{{ description }}</p>{{ /if }}
+</header>

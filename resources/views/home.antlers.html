@@ -1,0 +1,36 @@
+<header class="relative mb-14 border-b border-current/20 pb-12 lg:mb-16 lg:pb-14">
+    <div class="mb-6 flex items-center gap-4 font-mono text-base sm:text-sm"><span class="size-2 rounded-full bg-hot-pink formal:bg-ink formal:dark:bg-gray-100" aria-hidden="true"></span><p>{{ eyebrow ?? 'An independent publication' }}</p></div>
+    <div class="grid items-end gap-8 lg:grid-cols-[3fr_2fr] lg:gap-12">
+        <h1 class="max-w-[13ch] font-display text-7xl text-balance casual:uppercase sm:text-8xl lg:text-9xl formal:text-5xl formal:font-semibold formal:tracking-tight formal:sm:text-6xl formal:lg:text-7xl">{{ partial:personality_string key="home_headline" }}</h1>
+        <div class="pb-2"><p class="max-w-[38ch] text-lg leading-8 text-gray-600 dark:text-gray-300">{{ intro | strip_tags }}</p><p class="mt-6 font-mono text-base sm:text-sm"><a href="/about" class="underline decoration-accent decoration-2">{{ partial:personality_string key="about_link" }} <span aria-hidden="true">↗</span></a></p></div>
+    </div>
+    {{ if settings:personality == 'casual' }}<div aria-hidden="true" class="pointer-events-none absolute -right-1 -top-4 rotate-12 font-display text-7xl text-accent sm:right-2">✳</div>{{ /if }}
+</header>
+{{ collection:blog limit='1' sort='date:desc' as='featured' }}
+    {{ if no_results }}<p class="py-12 text-lg">The first article is on its way. Check back soon.</p>{{ /if }}
+    {{ featured }}
+    <section aria-label="Featured article" class="mb-16">
+        <div class="mb-6 flex items-center justify-between gap-6"><h2 class="font-mono text-base sm:text-sm">{{ partial:personality_string key="featured_heading" }}</h2><p class="font-mono text-base text-gray-600 sm:text-sm dark:text-gray-400">01 / The latest</p></div>
+        <article class="grid items-center gap-8 lg:gap-12 {{ if hero_image }}lg:grid-cols-[3fr_2fr]{{ /if }}">
+            {{ if hero_image }}<a href="{{ url }}" tabindex="-1" aria-hidden="true" class="relative block casual:lg:-rotate-2"><img src="{{ glide:hero_image width='1200' height='900' fit='crop_focal' }}" alt="" width="1200" height="900" fetchpriority="high" class="aspect-4/3 w-full rounded-lg object-cover formal:rounded-sm"></a>{{ /if }}
+            <div class="relative py-4">
+                {{ topics limit='1' }}<p class="mb-6 w-fit rounded-full border border-current/20 px-4 py-2 font-mono text-base casual:-rotate-3 casual:bg-[#eee98b] casual:text-ink formal:rounded-sm sm:text-sm dark:casual:bg-white/10 dark:casual:text-gray-100"><a href="{{ url }}" class="hover:underline">{{ title }}</a></p>{{ /topics }}
+                <h3 class="max-w-[24ch] text-4xl font-semibold tracking-tight text-pretty lg:text-5xl"><a href="{{ url }}" class="hover:text-accent">{{ title }}</a></h3>
+                <div class="mt-6 max-w-[42ch] text-lg leading-8 text-gray-600 dark:text-gray-300">{{ intro | strip_tags | truncate:190 }}</div>
+                <p class="mt-6 font-mono text-base text-gray-600 sm:text-sm dark:text-gray-400"><time datetime="{{ date format='Y-m-d' }}">{{ date format='M j, Y' }}</time>{{ if author }} · {{ author:name }}{{ /if }}</p>
+                <p class="mt-8"><a href="{{ url }}" class="inline-flex min-h-12 items-center gap-6 border-b-2 border-accent py-2 font-medium">Read the story <span aria-hidden="true">↗</span></a></p>
+            </div>
+        </article>
+    </section>
+    {{ /featured }}
+{{ /collection:blog }}
+<section aria-labelledby="more-heading" class="pt-6">
+    <div class="creek-rule mb-8" aria-hidden="true"></div>
+    <div class="mb-8 flex flex-wrap items-center justify-between gap-4"><h2 id="more-heading" class="font-display text-4xl casual:uppercase formal:text-2xl formal:font-semibold">{{ partial:personality_string key="recent_heading" }}</h2><a href="/archive" class="py-3 underline">The archive ↗</a></div>
+    <div class="grid gap-8 md:grid-cols-2 lg:grid-cols-3">{{ collection:blog offset='1' limit='6' sort='date:desc' as='recent' }}{{ recent }}{{ partial:blog/card }}{{ /recent }}{{ /collection:blog }}</div>
+</section>
+<section aria-labelledby="topics-heading" class="mt-16 border-y border-current/20 py-10">
+    <div class="flex flex-wrap items-baseline justify-between gap-4"><h2 id="topics-heading" class="font-display text-4xl casual:uppercase formal:text-2xl formal:font-semibold">{{ partial:personality_string key="topics_heading" }}</h2><a href="/topics" class="py-3 underline">All topics ↗</a></div>
+    <div class="mt-6 flex flex-wrap gap-4">{{ taxonomy:topics }}{{ if !no_results }}<a href="{{ url }}" class="rounded-full border border-current/30 px-5 py-3 hover:text-accent casual:odd:-rotate-2 casual:even:rotate-2 formal:rounded-sm">{{ title }} <span aria-hidden="true">↗</span></a>{{ /if }}{{ /taxonomy:topics }}</div>
+</section>
+{{ partial:sign-up }}

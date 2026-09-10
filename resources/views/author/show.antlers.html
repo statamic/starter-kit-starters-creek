@@ -1,23 +1,11 @@
-<article class="max-w-5xl mx-auto">
-    {{ user:profile field="handle" :value="segment_2" }}
-    <header class="mx-auto max-w-3xl text-center content mb-16">
-        <p class="m-0">Written by</p>
-        <h1 class="m-0">{{ $name }}</h1>
-    </header>
-
-    <section class="max-w-6xl mx-auto py-6">
-        {{ collection:blog as="results" :author:is="id" }}
-            {{ if ! results }}
-                <h2 class="text-center">{{ $name }} hasn't written any articles.</h2>
-            {{ else }}
-            <section class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 py-8">
-                {{ results }}
-                    {{ partial:blog/card }}
-                {{ /results }}
-            </section>
-            {{ /if }}
-        {{ /collection:blog }}
-    </section>
-
-    {{ /user:profile }}
-</article>
+{{ user:profile field="handle" :value="segment_2" }}
+<header class="mb-12 flex flex-wrap items-center gap-6">
+    {{ if avatar }}<img src="{{ glide:avatar width='240' height='240' fit='crop_focal' }}" width="120" height="120" alt="" class="size-30 rounded-full">{{ /if }}
+    <div><p class="mb-4 font-mono text-base text-accent sm:text-sm">Contributor</p><h1 class="font-display text-6xl casual:uppercase formal:text-5xl formal:font-semibold formal:tracking-tight">{{ name }}</h1>{{ if bio }}<p class="mt-5 max-w-[55ch] text-lg leading-8 text-gray-600 dark:text-gray-300">{{ bio }}</p>{{ /if }}{{ if website }}<p class="mt-4"><a href="{{ website }}" class="underline">Website ↗</a></p>{{ /if }}</div>
+</header>
+{{ collection:blog :author:is="id" sort='date:desc' paginate='12' as='articles' }}
+    {{ if no_results }}<p class="py-10 text-lg">No published articles yet.</p>{{ /if }}
+    <div class="grid gap-8 md:grid-cols-2 lg:grid-cols-3">{{ articles }}{{ partial:blog/card }}{{ /articles }}</div>
+    {{ paginate }}{{ partial:pagination }}{{ /paginate }}
+{{ /collection:blog }}
+{{ /user:profile }}

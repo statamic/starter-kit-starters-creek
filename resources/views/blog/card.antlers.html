@@ -1,12 +1,15 @@
-<a href="{{ $url }}" class="transition-all duration-75 ease-in-out h-full block relative top-0 hover:-top-2 shadow-lg hover:shadow-xl bg-white rounded-xl overflow-hidden">
-    <img class="{{ $oversized ? 'hidden md:block' : 'hidden' }} squiggle" height="285" src="{{ glide:hero_image height="570" width="1472" fit="crop_focal" }}" alt="{{ $hero_image:alt }}">
-    <img class="squiggle {{ $oversized ?= 'md:hidden' }}" height="285" src="{{ glide:hero_image height="570" width="736" fit="crop_focal" }}" alt="{{ $hero_image:alt }}">
-    <div class="py-6 px-8">
-        <h2 class="font-bold text-2xl leading-tight">
-            {{ $title }}
-        </h2>
-        <p class="text-xs text-gray-600 mt-4 flex items-center">
-            {{ $date }}
-        </p>
-    </div>
-</a>
+<article class="group relative min-w-0">
+    <a href="{{ url }}" class="block overflow-hidden rounded-lg bg-white ring-1 ring-ink/10 transition-transform duration-200 motion-reduce:transition-none casual:motion-safe:hover:-translate-y-1 casual:motion-safe:hover:-rotate-1 formal:rounded-sm dark:bg-night-panel dark:ring-white/10">
+        {{ if hero_image }}
+            <img src="{{ glide:hero_image width='960' height='640' fit='crop_focal' }}" alt="{{ hero_image:alt }}" width="960" height="640" loading="lazy" class="aspect-3/2 w-full object-cover">
+        {{ else }}
+            <div class="flex aspect-3/2 items-center justify-center bg-ink/5 dark:bg-white/5" aria-hidden="true"><span class="font-display text-8xl casual:rotate-6 formal:font-medium">Aa.</span></div>
+        {{ /if }}
+        <div class="p-6 sm:p-7">
+            <p class="mb-4 font-mono text-base text-accent sm:text-sm"><time datetime="{{ date format='Y-m-d' }}">{{ date format='M j, Y' }}</time></p>
+            <h2 class="text-2xl font-semibold tracking-tight text-pretty group-hover:text-accent">{{ title }}</h2>
+            {{ if intro }}<div class="mt-4 line-clamp-2 text-base leading-7 text-gray-600 dark:text-gray-300">{{ intro | strip_tags }}</div>{{ /if }}
+            <p class="mt-6 text-base font-medium sm:text-sm">Read article <span aria-hidden="true">↗</span></p>
+        </div>
+    </a>
+</article>

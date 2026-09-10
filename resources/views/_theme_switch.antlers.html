@@ -1,0 +1,4 @@
+<button type="button" role="switch" aria-label="Lights" :aria-checked="(! $store.theme.dark).toString()" :title="$store.theme.dark ? 'Turn the lights on' : 'Turn the lights off'" @click="$store.theme.toggle()" x-cloak class="flex size-12 shrink-0 items-center justify-center hover:text-accent">
+    {{ svg src="sun-{settings:personality}" class="size-6 shrink-0 dark:hidden" aria-hidden="true" }}
+    {{ svg src="moon-{settings:personality}" class="size-6 shrink-0 hidden dark:block" aria-hidden="true" }}
+</button>

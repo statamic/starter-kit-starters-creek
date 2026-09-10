@@ -1,0 +1,4 @@
+<article class="grid gap-3 border-b border-current/15 py-7 sm:grid-cols-[9rem_1fr] sm:gap-8">
+    <p class="font-mono text-base text-gray-600 sm:text-sm dark:text-gray-400"><time datetime="{{ date format='Y-m-d' }}">{{ date format='M j' }}</time></p>
+    <div><h3 class="max-w-[42ch] text-2xl font-semibold tracking-tight text-pretty"><a href="{{ url }}" class="hover:text-accent">{{ title }}</a></h3>{{ if intro }}<p class="mt-3 max-w-[65ch] text-base leading-7 text-gray-600 dark:text-gray-300">{{ intro | strip_tags | truncate:160 }}</p>{{ /if }}</div>
+</article>

@@ -1,60 +1,38 @@
 @import "tailwindcss";
-
-@theme {
-    --color-black: #12151E;
-    --color-hot-pink: #fd2d78;
-
-    --font-display: var(--font-display);
-    --font-body: var(--font-body);
-}
-
 @import "./code.css";
 @import "./content.css";
 
-.personality-casual {
-    .squiggle {
-        filter: url("#squiggle");
-        position: relative;
-        transform: translateZ(0);
+@custom-variant dark {
+    &:where([data-theme=dark], [data-theme=dark] *) { @slot; }
+    @media (prefers-color-scheme: dark) {
+        &:where(:root:not([data-theme]), :root:not([data-theme]) *) { @slot; }
     }
 }
+@custom-variant casual (&:where([data-personality=casual], [data-personality=casual] *));
+@custom-variant formal (&:where([data-personality=formal], [data-personality=formal] *));
 
-.embed-responsive {
-    position: relative;
-    display: block;
-    height: 0;
-    padding: 0;
-    overflow: hidden;
-
-    .embed-responsive-item,
-    iframe,
-    embed,
-    object,
-    video {
-      position: absolute;
-      top: 0;
-      left: 0;
-      bottom: 0;
-      height: 100%;
-      width: 100%;
-      border: 0;
-    }
-  }
-
-  .aspect-ratio-none {
-    padding-bottom: 0;
-  }
-  .aspect-ratio-square {
-    padding-bottom: 100%;
-  }
-  .aspect-ratio-16\/9 {
-    padding-bottom: 56.25%;
-  }
-  .aspect-ratio-4\/3 {
-    padding-bottom: 75%;
-  }
-  .aspect-ratio-21\/9 {
-    padding-bottom: 42.86%;
-  }
-
-[x-cloak] { display: none; }
+@theme {
+    --color-black: #12151e;
+    --color-hot-pink: #fd2d78;
+    --color-paper: #fffdf5;
+    --color-ink: #171923;
+    --color-night: #17191f;
+    --color-night-panel: #202229;
+    --color-accent: #b81953;
+}
+@theme inline {
+    --font-display: var(--type-display);
+    --font-body: var(--type-body);
+}
+@layer base {
+    :root { --type-display: 'Londrina Solid', sans-serif; --type-body: 'Poppins', sans-serif; @variant dark { --color-accent: #ff8eb5; } }
+    [data-personality=formal] { --type-display: 'InterVariable', sans-serif; --type-body: 'InterVariable', sans-serif; --color-accent: #454b60; --color-paper: #ffffff; @variant dark { --color-accent: #c1c7d8; } }
+    :focus-visible { outline: 2px solid var(--color-accent); outline-offset: 4px; }
+    [x-cloak] { display: none !important; }
+    button { cursor: pointer; }
+    ::selection { background: #fd2d7840; }
+}
+@utility creek-rule {
+    border-top: 1px solid currentColor;
+    @variant casual { border-top-width: 2px; filter: url('#squiggle'); }
+}

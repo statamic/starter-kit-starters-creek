@@ -1,119 +1,167 @@
 title: Blog
-sections:
+tabs:
   main:
     display: Main
-    fields:
+    sections:
       -
-        handle: title
-        field:
-          type: text
-          required: true
-          validate:
-            - required
-      -
-        handle: intro
-        field:
-          always_show_set_button: false
-          buttons:
-            - bold
-            - italic
-            - removeformat
-            - anchor
-          save_html: true
-          toolbar_mode: fixed
-          link_noopener: false
-          link_noreferrer: false
-          target_blank: false
-          reading_time: false
-          fullscreen: true
-          allow_source: true
-          type: bard
-          listable: hidden
-          display: Intro
-      -
-        handle: hero_image
-        field:
-          mode: grid
-          container: assets
-          restrict: true
-          allow_uploads: true
-          max_files: 1
-          type: assets
-          listable: hidden
-          display: 'Hero Image'
-      -
-        handle: main_content
-        field:
-          always_show_set_button: false
-          buttons:
-            - h2
-            - h3
-            - bold
-            - italic
-            - unorderedlist
-            - orderedlist
-            - removeformat
-            - quote
-            - anchor
-            - image
-            - table
-            - strikethrough
-            - code
-            - codeblock
-          container: assets
-          save_html: false
-          toolbar_mode: fixed
-          link_noopener: false
-          link_noreferrer: false
-          target_blank: false
-          reading_time: true
-          fullscreen: true
-          allow_source: true
-          type: bard
-          listable: hidden
-          display: 'Main Content'
-          sets:
-            code_block:
-              display: 'Code Block'
-              fields:
-                -
-                  handle: code
-                  field:
-                    theme: material
-                    mode: php
-                    indent_type: tabs
-                    indent_size: 4
-                    key_map: default
-                    line_numbers: true
-                    line_wrapping: true
-                    type: code
-                    listable: hidden
-                    display: Code
+        fields:
+          -
+            handle: title
+            field:
+              type: text
+              required: true
+              validate:
+                - required
+          -
+            handle: intro
+            field:
+              always_show_set_button: false
+              buttons:
+                - bold
+                - italic
+                - removeformat
+                - anchor
+              save_html: true
+              toolbar_mode: fixed
+              link_noopener: false
+              link_noreferrer: false
+              target_blank: false
+              reading_time: false
+              fullscreen: true
+              allow_source: true
+              type: bard
+              listable: hidden
+              display: Intro
+          -
+            handle: hero_image
+            field:
+              mode: grid
+              container: assets
+              restrict: true
+              allow_uploads: true
+              max_files: 1
+              type: assets
+              listable: hidden
+              display: 'Hero Image'
+          -
+            handle: main_content
+            field:
+              always_show_set_button: false
+              buttons:
+                - h2
+                - h3
+                - bold
+                - italic
+                - unorderedlist
+                - orderedlist
+                - removeformat
+                - quote
+                - anchor
+                - image
+                - table
+                - strikethrough
+                - code
+                - codeblock
+              container: assets
+              save_html: false
+              toolbar_mode: fixed
+              link_noopener: false
+              link_noreferrer: false
+              target_blank: false
+              reading_time: true
+              fullscreen: true
+              allow_source: true
+              type: bard
+              listable: hidden
+              display: 'Main Content'
+              sets:
+                article:
+                  display: Article
+                  sets:
+                    code_block:
+                      display: 'Code Block'
+                      fields:
+                        -
+                          handle: code
+                          field:
+                            theme: material
+                            mode: php
+                            indent_type: tabs
+                            indent_size: 4
+                            key_map: default
+                            line_numbers: true
+                            line_wrapping: true
+                            type: code
+                            listable: hidden
+                            display: Code
+                    image:
+                      display: 'Captioned image'
+                      fields:
+                        -
+                          handle: image
+                          field:
+                            type: assets
+                            display: Image
+                            container: assets
+                            max_files: 1
+                            validate:
+                              - required
+                        -
+                          handle: caption
+                          field:
+                            type: text
+                            display: Caption
+                    pull_quote:
+                      display: 'Pull quote'
+                      fields:
+                        -
+                          handle: quote
+                          field:
+                            type: textarea
+                            display: Quote
+                            validate:
+                              - required
+                        -
+                          handle: attribution
+                          field:
+                            type: text
+                            display: Attribution
   sidebar:
     display: Sidebar
-    fields:
+    sections:
       -
-        handle: slug
-        field:
-          type: slug
-          required: true
-          localizable: true
-          validate:
-            - required
-            - 'new \Statamic\Rules\UniqueEntryValue({collection},{id},{site})'
-      -
-        handle: date
-        field:
-          type: date
-          required: true
-          validate:
-            - required
-      -
-        handle: author
-        field:
-          max_items: 1
-          mode: select
-          type: users
-          listable: true
-          display: Author
-          default: current
+        fields:
+          -
+            handle: slug
+            field:
+              type: slug
+              required: true
+              localizable: true
+              validate:
+                - required
+                - 'new \Statamic\Rules\UniqueEntryValue({collection},{id},{site})'
+          -
+            handle: date
+            field:
+              type: date
+              required: true
+              validate:
+                - required
+          -
+            handle: author
+            field:
+              max_items: 1
+              mode: select
+              type: users
+              listable: true
+              display: Author
+              default: current
+          -
+            handle: topics
+            field:
+              type: terms
+              display: Topics
+              taxonomies:
+                - topics
+              mode: select
+              create: true
