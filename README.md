@@ -81,35 +81,6 @@ Output goes to `storage/app/static`. Article, page, topic, author, and 404 templ
 
 **Search requires PHP.** `/search` is excluded from static generation. Route that endpoint to the Statamic application, or replace/remove search links and forms before deploying to a purely static host. Configure the host to serve `404.html` with a 404 status. Newsletter links work without a backend in the kit.
 
-## Developing this kit
-
-Keep the kit checkout separate from its installed preview application. Register the checkout as a Composer path repository in the preview, then install it locally:
-
-```sh
-composer config repositories.starters-creek path /absolute/path/to/starter-kit-starters-creek
-php please starter-kit:install statamic/starter-kit-starters-creek --local --with-config
-php please search:update --all
-```
-
-From the kit checkout, build and copy kit-owned files into that preview:
-
-```sh
-npm run build
-php scripts/sync-preview.php /absolute/path/to/preview
-```
-
-Sync overwrites the preview’s kit-owned content, templates, routes, and assets. It leaves `.env`, users, and installed packages alone; it replaces exported configuration and `AppServiceProvider.php`. Make lasting changes in the kit checkout. The helper clears the Stache and rebuilds search; it does not delete files that were removed from the kit.
-
-Repository checks:
-
-```sh
-node --test tests/theme.test.mjs
-php tests/smoke.php http://your-preview.test
-npm run build
-git diff --check
-```
-
-The smoke test expects the bundled sample content. Browser verification is still required for visual and interaction changes.
 
 ## Contributing
 
